@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="RestSpring:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="RestSpringDemo.war">
+      <element id="artifact" artifact-name="RestSpring:war exploded" />
+    </root>
+  </artifact>
+</component>
