@@ -12,20 +12,15 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
+    private static final int LOGIN_SUCESS = 1;
+    private static final int LOGIN_FAIL = 0 ;
     private UserDao userDao;
 
     public  void setUserDao(UserDao userDao){
         this.userDao= userDao;
     }
 
-    @Override
-    @Transactional
-    public List<Users> getUserByNameAndPass(Users user) {
 
-        List<Users> users = this.userDao.findByNameAndPass(user);
-
-        return users;
-    }
 
     @Override
     @Transactional
@@ -43,5 +38,22 @@ public class UserServiceImpl implements UserService {
         List<Users> user = this.userDao.findByName(name);
 
         return user;
+    }
+
+    /**
+     *
+     * @param user
+     * @param pass
+     * @return 登陆后的身份确认:0为登陆失败,1为登陆成功.
+     */
+    @Override
+    @Transactional
+    public int validLogin(String user, String pass) {
+
+        if(this.userDao.findByNameAndPass(user,pass).size() >= 1 ){
+            return LOGIN_SUCESS;
+        }else{
+            return LOGIN_FAIL;
+        }
     }
 }

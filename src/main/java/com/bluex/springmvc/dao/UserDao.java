@@ -20,7 +20,7 @@ public interface UserDao {
 
     List<Users> findAll();
 
-    List findByNameAndPass(Users users);
+    List<Users> findByNameAndPass(String user, String pass);
 
     List<Users> findByName(String name);
 

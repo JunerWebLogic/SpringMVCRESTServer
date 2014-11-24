@@ -9,9 +9,11 @@ import java.util.List;
  */
 public interface UserService {
 
-    public List<Users> getUserByNameAndPass(Users user);
+
 
     public List<Users> getUserByID(int id);
 
     public List<Users> getUserByName(String name);
+
+    public int validLogin(String user,String pass);
 }

@@ -4,11 +4,11 @@ import com.bluex.springmvc.domain.Message;
 import com.bluex.springmvc.domain.Users;
 import com.bluex.springmvc.service.UserService;
 import org.hibernate.service.spi.InjectService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -42,6 +42,32 @@ public class HelloWorldRestController {
     @RequestMapping("/")
     public String Hello(){
         return "Hello Bluex!";
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody Users login (@RequestBody Users users){
+
+        Users newuser = new Users();
+        System.out.println("Method POST Name ="+users.getUsername());
+        System.out.println("Method POST Pass ="+users.getPassword());
+
+        if (userService.validLogin(users.getUsername(),users.getPassword())> 0 ){
+            //Vaild User
+
+            //Return User Init Info
+            //User name, Vac info, Vac list(5),accesstoken
+
+            newuser.setId(11);
+            newuser.setUsername("Sucess + " + users.getUsername());
+            newuser.setPassword("Sucess pass + " + users.getPassword());
+
+        }else{
+            //error
+
+        }
+
+
+        return newuser;
     }
 
 

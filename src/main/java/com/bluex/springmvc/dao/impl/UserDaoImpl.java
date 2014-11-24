@@ -54,12 +54,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List findByNameAndPass(Users users) {
+    public List<Users> findByNameAndPass(String user, String pass) {
         // return (List<Users>) this.hibernateTemplate.find("from Users user where user.username=? and user.password=?",users.getUsername(),users.getPassword());
         return this.sessionFactory.getCurrentSession()
                 .createQuery("from Users user where user.username=? and user.password=?")
-                .setParameter(0,users.getUsername())
-                .setParameter(1,users.getPassword())
+                .setParameter(0,user)
+                .setParameter(1,pass)
                 .list();
     }
 
