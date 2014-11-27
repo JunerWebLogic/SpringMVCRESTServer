@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Entity
 @Table( name ="user")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-public class Users implements Serializable{
+public class User implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -30,6 +30,28 @@ public class Users implements Serializable{
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "token")
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getTokentime() {
+        return tokentime;
+    }
+
+    public void setTokentime(String tokentime) {
+        this.tokentime = tokentime;
+    }
+
+    @Column(name = "tokentime")
+    private String tokentime;
 
     public Integer getId() {
         return id;

@@ -1,17 +1,33 @@
 package com.bluex.springmvc.system;
 
+import com.bluex.springmvc.domain.User;
+import com.bluex.springmvc.service.UserService;
+
+import javax.inject.Inject;
+
 /**
  * Created by Administrator on 2014/11/21.
  */
 public class AccessToken {
 
+    String tokentime = "";
+    private UserService userService;
+
+    @Inject
+    public AccessToken(UserService userService){
+        this.userService = userService;
+    }
     /**
      * 保存用户的 Token 及 UID
      * @param key   用户的 Token (随机 Hash)
      * @param value 用户的身份标识
      */
     public void setUserToken(String key,String value){
-
+        User user = new User();
+        user.setToken(key);
+        user.setUsername(value);
+        user.setTokentime(tokentime);
+        userService.saveToken(user);
     }
 
     /**

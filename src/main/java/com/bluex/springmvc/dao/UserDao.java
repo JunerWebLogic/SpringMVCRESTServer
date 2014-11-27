@@ -1,6 +1,6 @@
 package com.bluex.springmvc.dao;
 
-import com.bluex.springmvc.domain.Users;
+import com.bluex.springmvc.domain.User;
 
 import java.util.List;
 
@@ -10,20 +10,18 @@ import java.util.List;
 public interface UserDao {
     List get(Integer id);
 
-    java.io.Serializable save(Users users);
+    java.io.Serializable save(User user);
 
-    void update(Users users);
+    void saveToken(User user);
 
-    void delete(Users users);
+    void update(User user);
+
+    void delete(User user);
 
     void delete(Integer id);
 
-    List<Users> findAll();
+    List<User> findAll();
 
-    List<Users> findByNameAndPass(String user, String pass);
-
-    List<Users> findByName(String name);
-
-    List<Users> findByID(int id);
+    List<User> findByNameAndPass(String user, String pass);
 
 }

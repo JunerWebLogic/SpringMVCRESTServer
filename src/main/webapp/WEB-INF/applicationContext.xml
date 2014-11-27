@@ -34,7 +34,7 @@
         <property name="dataSource" ref="myDatabase"/>
         <property name="annotatedClasses">
             <list>
-                <value>com.bluex.springmvc.domain.Users</value>
+                <value>com.bluex.springmvc.domain.User</value>
             </list>
         </property>
         <property name="hibernateProperties">

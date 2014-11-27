@@ -1,6 +1,6 @@
 package com.bluex.springmvc.service;
 
-import com.bluex.springmvc.domain.Users;
+import com.bluex.springmvc.domain.User;
 
 import java.util.List;
 
@@ -9,11 +9,7 @@ import java.util.List;
  */
 public interface UserService {
 
+    public User validLogin(String user,String pass);
 
-
-    public List<Users> getUserByID(int id);
-
-    public List<Users> getUserByName(String name);
-
-    public int validLogin(String user,String pass);
+    public String saveToken (User user);
 }
