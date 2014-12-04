@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user_vacation")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class UserVaction {
     private static final long serialVersionUID = 1L;
 
@@ -21,29 +21,29 @@ public class UserVaction {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "yaer")
+    @Column(name = "year")
     private String year;
 
-    @Column(name = "legal")
-    private double legal;
+    @Column(name = "leagal")
+    private double leagal;
 
     @Column(name = "company")
     private double company;
 
-    @Column(name = "remain_legal")
-    private double remain_legal;
+    @Column(name = "remain_leagal")
+    private double remain_leagal;
 
     @Column(name = "remain_company")
     private double remain_company;
 
-    @Column(name = "legal_d")
-    private double legal_d;
+    @Column(name = "leagal_d")
+    private double leagal_d;
 
     @Column(name = "company_d")
     private double company_d;
 
-    @Column(name = "remain_legal_d")
-    private double remain_legal_d;
+    @Column(name = "remain_leagal_d")
+    private double remain_leagal_d;
 
     @Column(name = "remain_company_d")
     private double remain_company_d;
@@ -73,11 +73,11 @@ public class UserVaction {
     }
 
     public double getLegal() {
-        return legal;
+        return leagal;
     }
 
     public void setLegal(double legal) {
-        this.legal = legal;
+        this.leagal = legal;
     }
 
     public double getCompany() {
@@ -89,11 +89,11 @@ public class UserVaction {
     }
 
     public double getRemain_legal() {
-        return remain_legal;
+        return remain_leagal;
     }
 
     public void setRemain_legal(double remain_legal) {
-        this.remain_legal = remain_legal;
+        this.remain_leagal = remain_legal;
     }
 
     public double getRemain_company() {
@@ -105,11 +105,11 @@ public class UserVaction {
     }
 
     public double getLegal_d() {
-        return legal_d;
+        return leagal_d;
     }
 
-    public void setLegal_d(double legal_d) {
-        this.legal_d = legal_d;
+    public void setLegal_d(double leagal_d) {
+        this.leagal_d = leagal_d;
     }
 
     public double getCompany_d() {
@@ -120,12 +120,12 @@ public class UserVaction {
         this.company_d = company_d;
     }
 
-    public double getRemain_legal_d() {
-        return remain_legal_d;
+    public double getRemain_leagal_d() {
+        return remain_leagal_d;
     }
 
-    public void setRemain_legal_d(double remain_legal_d) {
-        this.remain_legal_d = remain_legal_d;
+    public void setRemain_leagal_d(double remain_leagal_d) {
+        this.remain_leagal_d = remain_leagal_d;
     }
 
     public double getRemain_company_d() {

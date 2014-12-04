@@ -1,6 +1,8 @@
 package com.bluex.springmvc.controller;
 
 import com.bluex.springmvc.domain.User;
+import com.bluex.springmvc.domain.UserVaction;
+import com.bluex.springmvc.domain.VactionRecords;
 import com.bluex.springmvc.service.UserService;
 import com.bluex.springmvc.system.MD5;
 import org.springframework.http.MediaType;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by 001233 on 2014/11/20.
@@ -40,7 +44,19 @@ public class HelloWorldRestController {
         System.out.println("Method POST Name ="+ user.getUsername());
         System.out.println("Method POST Pass ="+ user.getPassword());
 
+
         if ( newuser != null ){
+            Set<UserVaction> userVactions = newuser.getUserVaction();
+            for(UserVaction userVaction : userVactions){
+                System.out.println("For username "+userVaction.getUsername());
+                System.out.println("For year "+userVaction.getYear());
+            }
+
+            Set<VactionRecords> vactionRecordses = newuser.getVactionRecords();
+            for (VactionRecords vactionRecords  :vactionRecordses){
+                System.out.println("vacationRcord=" + vactionRecords.getType());
+            }
+
             //Vaild User
 
             //1 生成Token,保存Token

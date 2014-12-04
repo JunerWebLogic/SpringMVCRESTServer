@@ -2,13 +2,11 @@ package com.bluex.springmvc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2014/11/20.
@@ -33,6 +31,31 @@ public class User implements Serializable{
 
     @Column(name = "token")
     private String token;
+
+    @OneToMany(mappedBy = "username",fetch = FetchType.LAZY)
+    private Set<UserVaction> userVaction;
+
+    public Set<UserVaction> getUserVaction() {
+        return userVaction;
+    }
+
+    public void setUserVaction(Set<UserVaction> userVaction) {
+        this.userVaction = userVaction;
+    }
+
+    @OneToMany(mappedBy = "username",fetch = FetchType.LAZY)
+    private Set<VactionRecords> vactionRecords = new HashSet<VactionRecords>();
+
+    public Set<VactionRecords> getVactionRecords() {
+        return vactionRecords;
+    }
+
+    public void setVactionRecords(Set<VactionRecords> vactionRecords) {
+        this.vactionRecords = vactionRecords;
+    }
+
+
+
 
     public String getToken() {
         return token;

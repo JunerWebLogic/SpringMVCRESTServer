@@ -35,6 +35,8 @@
         <property name="annotatedClasses">
             <list>
                 <value>com.bluex.springmvc.domain.User</value>
+                <value>com.bluex.springmvc.domain.UserVaction</value>
+                <value>com.bluex.springmvc.domain.VactionRecords</value>
             </list>
         </property>
         <property name="hibernateProperties">
